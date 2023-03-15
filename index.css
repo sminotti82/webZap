@@ -1,0 +1,177 @@
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+}
+#root{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/fundo_whats.jpeg);
+    background-size: contain;
+}
+header{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(34, 103, 34);
+    display: flex; flex-direction: row;
+}
+.headerLeft{
+    width: 400px;
+    height: 100%;
+    border-right: 1px solid whitesmoke;
+    display: flex;flex-direction: row;
+    position: relative;
+
+}
+.imgUser{
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border-radius:50% ;
+}
+.imgUser img{
+    width: 100%; height: 100%; border-radius: 50%;
+}
+.nameUser{
+    width: auto;height: auto;margin-top: 25px;
+    color: #c5c5c5; font-family: sans-serif;font-size: 0.9em;
+}
+.nameUser i{
+    margin-left: 10px;color: dodgerblue;
+}
+.iconUser{
+    position: absolute;
+    right: 5px;top: 5px;
+    display: flex; flex-direction: row;
+    justify-content: right;
+}
+.iconUser i{
+    color: #c5c5c5;
+    margin: 0 10px;
+    font-size: 1.1em;
+}
+.headerRight{
+    display: flex;flex-direction: row;
+    width: calc(100% - 401px);
+    height: 100%;
+    
+}
+
+/* FINE HEADER */
+
+/* INIZIO MAIN */
+main{
+    width: 100%;
+    height: calc(100% - 160px);
+    display: flex; flex-direction: row;
+}
+.mainLeft{
+    width: 400px;
+    height: 100%;
+    border-right: 1px solid whitesmoke;
+    display: flex;flex-direction: column;
+}
+.mainNotifiche{
+    width: 100%;
+    height: 80px;
+    background-color: #eaeaea;
+    display: flex; flex-direction: row;
+}
+.bell{
+    width: 70px; height: 70px;
+    margin: 5px; border-radius: 50%; background-color: #5d5d5d;text-align: center;
+}
+.bell i{
+    line-height: 70px;font-size: 1.5em; color: white;
+}
+.descrizioneCampana{
+    font-family: sans-serif;
+    margin-top: 20px;
+}
+.descrizioneCampana a{
+    color: dodgerblue;
+    text-decoration: none;
+}
+.cercaUser{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: relative;
+}
+.lente {
+    position: absolute;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+}
+.lente i{
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #eaeaea;
+}
+.cercaUser input{
+    width: 95%;
+    height: 40px;
+    margin: 5px 2.5%;
+    text-align: center;
+    border: none; outline: none;
+    background-color: rgb(34, 103, 34);
+    color: white;
+    font-size: 1.1em;
+}
+.cercaUser input::placeholder{
+    color: white;
+}
+.utentiLista{
+    width: 100%;
+    min-height: 519px;
+    height: auto;
+    
+    background-color:#c5c5c5
+}
+.utn{
+    width: 95%;
+    height: 70px;
+    margin: 15px 2.5%;
+    border: 2px solid white;
+    display: flex;flex-direction: row;
+    color :#3d3d3d
+
+}
+.utn:hover{
+    border: 2px solid rgb(34, 103, 34);
+    cursor: pointer;
+    
+}
+.imgContatto{
+    width: 60px;
+    height: 60px;
+    margin: 2.5px 5px;
+    border-radius: 50%;
+    background-color: green;
+}
+.imgContatto img{
+    width: 100%; height: 100%; border-radius: 50%;
+}
+.active{
+    background-color: rgb(34, 103, 34);
+    color: white;
+}
+.nomeContatto{
+    width: auto;padding: 5px;
+    height: 100%;
+    font-family: sans-serif;
+}
+.nomeContatto h3{
+    margin-top: 15px;
+    
+}
+.nomeContatto span{
+    font-size: 0.8em;
+}
+footer{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(34, 103, 34);
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <title>Web-zap</title>
+</head>
+<body>
+    <div id="root">
+        <!-- INIZIO HEADER WEBAPP -->
+        <header>
+               <div class="headerLeft">
+                        <div class="imgUser">
+                                 <img :src="user.avatar" alt="">
+                        </div>
+                        <div class="nameUser">
+                                 <span>online</span>
+                                <h2>Sebastiano Minotti<i class="fa-solid fa-circle-check"></i></h2>
+                        </div>
+                        <div class="iconUser">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+               </div>
+               
+                <!-- fine header left -->
+
+                <div class="headerRight">
+                            <div class="imgUser">
+                                <img  :src="'img/avatar'+contacts[contatore].avatar+'.jpg'"  alt="">
+                            </div>
+                    <div class="nameUser">
+                                <span>Online</span>
+                            <h2>{{contacts[contatore].name}}</h2>
+                    </div>
+
+                    <div class="iconUser">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+
+        </header>
+
+        <!-- FINE HEADER WEBAPP -->
+
+        <main>
+               <div class="mainLeft">
+                      <div class="mainNotifiche">
+                          <div class="bell">
+                              <div class="iconaCampana">
+                                <i class="fa-solid fa-bell-slash"></i>
+                              </div>
+                          </div>
+
+                          <div class="descrizioneCampana">
+                            <h3>Attiva e ricevi notifiche</h3>
+                            <span><a href="">Attiva le notifiche</a></span>
+                          </div>
+                      </div>
+
+                      <div class="cercaUser">
+                        <div class="lente">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                            <input type="text" name="" placeholder="Cerca contatti" id="">
+                      </div>
+                      <div class="utentiLista">
+                            <div @click="sceltaUtn(index)" :class="contatore==index?'active':'null'"  v-for="(contatto, index) in contacts" class="utn">
+                                    <div class="imgContatto">
+                                           <img :src="'img/avatar'+contatto.avatar+'.jpg'" alt="">
+                                    </div>
+                                    <div class="nomeContatto">
+                                        <h3>{{contatto.name}}</h3>
+                                        <span><b></b>{{contatore==index?'online':last+contatto.lastAccess}}</span>
+                                    </div>
+                            </div>
+                      </div>
+               </div>
+
+
+               <div class="mainRight">
+
+               </div>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
