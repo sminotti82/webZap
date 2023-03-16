@@ -3,12 +3,17 @@ let app = new Vue({
     data:{
          contatore:0,  
          last:'ultimo accesso:',   
+         cercaContatto:'',
+         nuovoMessaggio:'',
          user:{
             'nome':'Sebastiano',
             'cognome':'Minotti',
             'accesso':'online',
              'avatar':'img/avatar_io.jpg',
          },
+         risposte:[
+           'ciao','come stai ?','ok va bene','😊','lol','no assolutamente','mmmm sai che non credo','mi spiace','😥'
+         ],
          contacts: [
             {
               name: "michele",
@@ -113,6 +118,47 @@ let app = new Vue({
     methods:{
         sceltaUtn:function(index){
             this.contatore=index
+        },
+        ricerca:function(){
+          this.contacts.forEach(element => {
+            console.log(element);
+               if(element.name.includes(this.cercaContatto)){
+                  element.visible=true
+
+               } else{
+                 element.visible=false
+               }
+             
+          });
+        },
+
+        nuovo:function(){
+            let New={
+                    status:'sent',
+                    date: dayjs().format('DD/MM/YYYY hh:mm'),
+                    text:this.nuovoMessaggio
+
+            }
+            this.contacts[this.contatore].messages.push(New);
+            this.nuovoMessaggio=''
+              
+          setTimeout(this.risposta,2000)
+        },
+
+        risposta:function(){
+              let reply={
+                status:'received',
+                date: dayjs().format('DD/MM/YYYY hh:mm'),
+                text:this.risposte[this.repli(0,this.risposte.length-1)]
+              }
+              this.contacts[this.contatore].messages.push(reply)
+
+        },
+
+        repli:function(min, max){
+          return Math.floor(Math.random()*(max-min +1)+min)
         }
+
+      
     }
 })

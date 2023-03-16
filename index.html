@@ -33,7 +33,7 @@
 
                 <div class="headerRight">
                             <div class="imgUser">
-                                <img  :src="'img/avatar'+contacts[contatore].avatar+'.jpg'"  alt="">
+                                <img  :src="'img/avatar'+contacts[contatore].avatar+'.jpg'"   alt="">
                             </div>
                     <div class="nameUser">
                                 <span>Online</span>
@@ -71,10 +71,10 @@
                         <div class="lente">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                            <input type="text" name="" placeholder="Cerca contatti" id="">
+                            <input   @keyup="ricerca" v-model="cercaContatto" type="text" name="" placeholder="Cerca contatti" id="">
                       </div>
                       <div class="utentiLista">
-                            <div @click="sceltaUtn(index)" :class="contatore==index?'active':'null'"  v-for="(contatto, index) in contacts" class="utn">
+                            <div @click="sceltaUtn(index)" :class="contatore==index?'active':'null'" v-if="contatto.visible==true" v-for="(contatto, index) in contacts" class="utn">
                                     <div class="imgContatto">
                                            <img :src="'img/avatar'+contatto.avatar+'.jpg'" alt="">
                                     </div>
@@ -88,13 +88,32 @@
 
 
                <div class="mainRight">
-
+                     <div v-for="messaggio in contacts[contatore].messages" :class="messaggio.status=='sent'?'inviato':'ricevuto'" class="boxMsg">
+                         <div :class="messaggio.status=='sent'?'virInviato':'virRicevuto'" class="virgola"></div>
+                           <p>
+                             {{messaggio.text}}
+                           </p>
+                           <span>{{messaggio.date}}</span>
+                     </div>
                </div>
 
         </main>
 
         <footer>
+                  <div class="containerFooter">
+                      <div class="box left">
+                          <i class="fa-solid fa-camera"></i>
+                      </div> 
 
+                       <div class="inputFooter">
+                            <input v-model="nuovoMessaggio"  @keyup.enter="nuovo" type="text" name="" placeholder="scrivi un messaggio 🎙️" id="">
+                       </div>
+
+                        <div class="box right">
+                           <i class="fa-solid fa-microphone-lines"></i>
+                        </div> 
+                  </div>
+                 
         </footer>
 
 
